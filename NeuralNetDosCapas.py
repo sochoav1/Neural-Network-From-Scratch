@@ -76,3 +76,6 @@ y_test = np.argmax(y_test, axis=1)
 
 accuracy = np.sum(predictions == y_test) / y_test.shape[0]
 print("Accuracy:", accuracy)
+
+
+###De momento está funcionando mejor una sola red que dos

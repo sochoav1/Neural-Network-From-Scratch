@@ -68,7 +68,7 @@ X_test = X_test / np.max(X_test, axis=0)
 
 # Inicializar y entrenar la red neuronal
 nn = NeuralNetwork(inputSize=X_train.shape[1], hiddenSize=5, outputSize=y_train.shape[1])
-nn.train(X_train, y_train, epochs=1000, learningRate=0.01)
+nn.train(X_train, y_train, epochs=1500, learningRate=0.01)
 
 # Realizar predicciones en el conjunto de prueba
 predictions = nn.predict(X_test)
@@ -76,7 +76,7 @@ predictions = nn.predict(X_test)
 # Convertir las predicciones a etiquetas de clase
 predictions = np.argmax(predictions, axis=1)
 y_test = np.argmax(y_test, axis=1)
-    
+
 # Calcular la precisión del modelo
 accuracy = np.sum(predictions == y_test) / y_test.shape[0]
 print("Accuracy:", accuracy)
