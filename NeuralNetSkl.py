@@ -76,7 +76,7 @@ predictions = nn.predict(X_test)
 # Convertir las predicciones a etiquetas de clase
 predictions = np.argmax(predictions, axis=1)
 y_test = np.argmax(y_test, axis=1)
-
+    
 # Calcular la precisión del modelo
 accuracy = np.sum(predictions == y_test) / y_test.shape[0]
 print("Accuracy:", accuracy)
