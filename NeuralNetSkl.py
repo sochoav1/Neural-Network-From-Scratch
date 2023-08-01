@@ -1,5 +1,6 @@
 import numpy as np
 from sklearn.datasets import load_iris
+from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
 
@@ -68,7 +69,7 @@ X_test = X_test / np.max(X_test, axis=0)
 
 # Inicializar y entrenar la red neuronal
 nn = NeuralNetwork(inputSize=X_train.shape[1], hiddenSize=5, outputSize=y_train.shape[1])
-nn.train(X_train, y_train, epochs=1500, learningRate=0.01)
+nn.train(X_train, y_train, epochs=150, learningRate=0.01)
 
 # Realizar predicciones en el conjunto de prueba
 predictions = nn.predict(X_test)
@@ -80,3 +81,9 @@ y_test = np.argmax(y_test, axis=1)
 # Calcular la precisión del modelo
 accuracy = np.sum(predictions == y_test) / y_test.shape[0]
 print("Accuracy:", accuracy)
+
+
+print(confusion_matrix(y_test, predictions))
+print(classification_report(y_test, predictions))
+
+
